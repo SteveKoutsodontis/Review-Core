@@ -1,0 +1,44 @@
+body {
+    background-color: white;
+}
+
+.review-core {
+    text-align: center;
+}
+
+nav {
+    background-color: lightsalmon;
+}
+
+.login-link {
+    text-align: right;
+}
+
+header {
+    background-color:lightblue;
+}
+
+
+.description {
+    background-color: lightgreen;
+    text-align: center;
+    font-size: large;
+}
+
+.review-box {
+    background-color: lightgrey;
+    text-align: center;
+}
+.review {
+    background-color: rosybrown;
+    margin: 20px;
+}
+
+.review h3 {
+    text-align: center;
+}
+
+footer {
+    background-color: lightblue;
+    text-align: center;
+}
