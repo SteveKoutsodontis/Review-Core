@@ -3,11 +3,11 @@ const Review = require('./Review');
 const Game = require('./Game');
 const Comment = require('./Comment');
 
-//Comment belongsTo User onDelete: CASCADE
+//TODO Austin: Comment belongsTo User onDelete: CASCADE
 
-//Comment belongsTo Review onDelete should delete comments if the review is deleted
+//TODO Steve: Comment belongsTo Review onDelete should delete comments if the review is deleted
 
-//Review belongsTo Game onDelete of game reviews should also be deleted
+//TODO Chris: Review belongsTo Game onDelete of game reviews should also be deleted
 
 module.exports = {
     User,
