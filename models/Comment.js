@@ -1,1 +1,1 @@
-//TODO Austin: Create Comment model #Reference db/review-core-mode.png
+//TODO Chris: Create Comment model #Reference db/review-core-mode.png
