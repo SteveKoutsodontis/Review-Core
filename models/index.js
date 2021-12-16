@@ -1,7 +1,10 @@
+// import models
 const User = require('./User');
 const Review = require('./Review');
 const Game = require('./Game');
 const Comment = require('./Comment');
+
+
 
 //TODO Austin: Comment belongsTo User onDelete: CASCADE
 
