@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: white;
 }
@@ -12,6 +16,10 @@ nav {
 
 .login-link {
     text-align: right;
+}
+
+.username-display {
+    text-align: left;
 }
 
 header {
@@ -41,4 +49,14 @@ header {
 footer {
     background-color: lightblue;
     text-align: center;
+}
+
+/* // Log in // */
+
+.login-form {
+    background-color: lightgrey;
+}
+
+.signup-form {
+    background-color: lightgreen;
 }
