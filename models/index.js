@@ -5,6 +5,41 @@ const Game = require('./Game');
 const Comment = require('./Comment');
 
 
+User.hasMany(Review, {
+    foreignKey: 'userId',
+    onDelete: 'CASCADE'
+});
+
+User.hasMany(Comment, {
+    foreignKey: 'userId',
+    onDelete: 'CASCADE'
+});
+
+Review.belongsTo(User, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+});
+
+Review.hasMany(Comment, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+});
+
+Comment.belongsTo(User, {
+    foreignKey: 'userId',
+    onDelete: 'CASCADE'
+});
+
+Comment.belongsTo(Review, {
+    foreignKey: 'userId',
+    onDelete: 'CASCADE'
+});
+
+Review.belongsTo(Game, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+});
+
 
 //TODO Austin: Comment belongsTo User onDelete: CASCADE
 

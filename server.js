@@ -1,6 +1,6 @@
 const path = require('path');
 const express = require('express');
-
+const routes = require("./controllers")
 //TODO: Import routes here
 
 const session = require('express-session');
@@ -26,6 +26,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 // TODO: Link routes
+app.use(routes)
+
 app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}!`);
     sequilize.sync({force: false});
