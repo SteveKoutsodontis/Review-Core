@@ -29,6 +29,20 @@ function getReviews(){
         console.error(err);
     });
 }
+/*
+    reviews: [
+        {
+            id: 1,
+            title,
+            text,
+            comments: [
+                {
+                    id,
+                }
+            ]
+        }
+    ]
+*/
 
 function generateReviewCards(){
     for (let i = 0; i <= reviews.length; i++){
@@ -43,8 +57,5 @@ function generateReviewCards(){
         //Append all elements respectively
     }
 }
-
-
-
 
 init();
