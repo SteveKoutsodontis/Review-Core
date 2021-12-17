@@ -60,3 +60,26 @@ footer {
 .signup-form {
     background-color: lightgreen;
 }
+
+
+
+/* // Review Page // */
+
+.review-game {
+    text-align: center;
+}
+.review-user {
+    text-align: center;
+}
+.review-head {
+    background-color: lightgreen;
+}
+.review-rating {
+    background-color: lightyellow;
+}
+.review-body {
+    background-color: rosybrown;
+}
+.review-link {
+    background-color: lightsalmon;
+}
