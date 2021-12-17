@@ -14,11 +14,11 @@ Game.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        genre: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        name: {
+        genre: {
             type: DataTypes.STRING,
             allowNull: false,
         },
