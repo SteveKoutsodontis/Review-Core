@@ -1,10 +1,9 @@
 //TODO Steve: Create api routes for getting, posting, and deleting comment information from the server //No reference yet maybe wait on this one
-
 const router = require('express').Router();
 const { User, Review, Game, Comment } = require('../../models');
 
 // The `/api/categories` endpoint
-router.get('/', async (req, res) => {
+router.get('/', (req, res) => {
     Review.findAll().then(response => res.json(response))
     
 });

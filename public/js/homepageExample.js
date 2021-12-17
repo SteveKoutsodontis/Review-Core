@@ -1,6 +1,4 @@
-const { response } = require("express");
-const { get } = require("express/lib/response");
-const res = require("express/lib/response");
+
 
 const reviewBoxEl = $("#reviewBox");
 
@@ -29,6 +27,20 @@ function getReviews(){
         console.error(err);
     });
 }
+/*
+    reviews: [
+        {
+            id: 1,
+            title,
+            text,
+            comments: [
+                {
+                    id,
+                }
+            ]
+        }
+    ]
+*/
 
 function generateReviewCards(){
     for (let i = 0; i <= reviews.length; i++){
@@ -38,13 +50,10 @@ function generateReviewCards(){
         reviewCardEl.attr("id", i+"");
         let reviewTitleEl = $("<h3>");
         let reviewTextEl = $("<p>");
-        reviewTitleEl.text(reviews[i].title);
-        reviewTextEl.text(reviews[i].text);
+        reviewTitleEl.text(reviews[i].review_header);
+        reviewTextEl.text(reviews[i].review_text);
         //Append all elements respectively
     }
 }
-
-
-
 
 init();
