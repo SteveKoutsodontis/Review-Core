@@ -9,16 +9,31 @@
     <title>Log In</title>
 </head>
 <body>
+
+    <header>
+        <div class="review-core">
+            <h1> Review Core</h1>
+        </div>
+    </header>
+
     <div class="row">
         <div class="col-12 col-md-6">
             <div class="login-form">
                 <h2>Log In</h2>
                 <form id = "login-form">
-                    <label for="email">Email</label><br>
-                    <input type="text" name="email" id="email-input-login"><br>
-                    <label for="password">Password</label><br>
-                    <input type="text" name="password" id="password-input-login"><br><br>
+
+                    <div class= "col-10">
+                        <label for="email">Email</label><br>
+                        <input type="text" class="form-control" id="email-input-login" name="email"><br>
+                    </div>
+
+                    <div class="col-10">
+                        <label for="password">Password</label><br>
+                        <input type="password" class="form-control" id="password-input-login" name="password"><br><br>
+                    </div>
+
                     <input type="submit" value="Submit">
+                    
                 </form>
             </div>
         </div>
@@ -27,12 +42,21 @@
             <div class="signup-form">
                 <h2>Sign Up</h2>
                 <form id="signup-form">
-                    <label for="username">Username</label><br>
-                    <input type="text"  name="username" id="username-input-signin"><br>
-                    <label for="email">Email</label><br>
-                    <input type="text"  name="email" id="email-input-signin"><br>
-                    <label for="password">Password</label><br>
-                    <input type="text"  name="password" id="password-input-signin"><br><br>
+                    <div class="col-10">
+                        <label for="username">Username</label><br>
+                        <input type="text" class="form-control" id="username-input-signin" name="username"><br>
+                    </div>
+
+                    <div class="col-10">
+                        <label for="email">Email</label><br>
+                        <input type="text" class="form-control" id="email-input-signin" name="email"><br> 
+                    </div>
+
+                    <div class="col-10">
+                        <label for="password">Password</label><br>
+                        <input type="password" class="form-control" id="password-input-signin" name="password"><br><br>
+                    </div>
+        
                     <input type="submit" value="Submit">
                 </form>
             </div>
