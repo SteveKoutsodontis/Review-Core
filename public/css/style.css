@@ -83,3 +83,23 @@ footer {
 .review-link {
     background-color: lightsalmon;
 }
+
+.review_container{
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.review_form{ 
+}
+
+.game_list{
+    list-style-type: none;
+}
+
+.game_list_container{
+
+}
+
+.game_list_card{
+    list-style-type: none;
+}
