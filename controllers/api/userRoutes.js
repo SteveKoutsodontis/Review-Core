@@ -1,32 +1,64 @@
-//TODO Austin: Create api routes for getting, posting, and deleting comment information from the server //No reference yet maybe wait on this one
-/*
-    Post Route Url: 'api/users/'
-    Used to make a new acccount
-    req.body format:
-    {
-        username: 'password',
-        password: 'username'
-    }
-    psuedo code:
-    create new user in database
-    create new session and set the session info from user returned from database
-    send user info back to the front end
-*/
+const router = require('express').Router();
+const { User } = require('../../models');
 
-/*
-    Post Route Url: api/users/login
-    Used to login to already created account
-    req.body.format:
-    {
-        username: 'whater',
-        password: 'mypass'
-    }
-    psuedo code:
-    Get user info from database by searching for their username
-    check the password sent from req.body against the password in the database
-    if password is wrong send error message to user
-    if password is right create a new session for the user and tell the user it worked
-*/
+// The `/api/categories` endpoint
+router.post('/', async (req, res) => {
+  try {
+    const userData = await User.create(req.body);
 
-/*
-*/
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+
+      res.status(200).json(userData);
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+    // create a single User
+router.post('/login', async (req, res) => {
+  try {
+    const userData = await User.findOne({ where: { email: req.body.email } });
+
+    if (!userData) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password, please try again' });
+      return;
+    }
+
+    const validPassword = await userData.checkPassword(req.body.password);
+
+    if (!validPassword) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password, please try again' });
+      return;
+    }
+
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+      
+      res.json({ user: userData, message: 'You are now logged in!' });
+    });
+
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.post('/logout', (req, res) => {
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
+
+module.exports = router;
+
