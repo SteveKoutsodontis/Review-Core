@@ -34,7 +34,7 @@ router.put('/:id', async (req, res) => {
     res.status(200).json(req.body)
 });
 
-router.delete('/:id', async, (req, res) => {
+router.delete('/:id', async (req, res) => {
     Comment.destroy({
         id: req.params.id
     })
