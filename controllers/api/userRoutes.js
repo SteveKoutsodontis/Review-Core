@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-// The `/api/categories` endpoint
+// The `/api/user` endpoint
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
@@ -9,8 +9,12 @@ router.post('/', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-
-      res.status(200).json(userData);
+      userData.password = 'Psych you thought we would return the actual password hash, what do you think we are stupid?';
+      res.status(200).json({
+        message: 'You are now logged in!', 
+        user: userData,
+        logged_in: true
+      });
     });
   } catch (err) {
     res.status(400).json(err);
@@ -40,9 +44,10 @@ router.post('/login', async (req, res) => {
 
     req.session.save(() => {
       req.session.user_id = userData.id;
+      req.session.username = userData.username;
       req.session.logged_in = true;
-      
-      res.json({ user: userData, message: 'You are now logged in!' });
+      userData.password = 'Psych you thought we would return the actual password hash, what do you think we are stupid?';
+      res.json({ user: userData, message: 'You are now logged in!', logged_in: true});
     });
 
   } catch (err) {
