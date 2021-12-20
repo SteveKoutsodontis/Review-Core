@@ -7,47 +7,44 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>Review Core</title>
-  </head>
-  <body>
-    <form>
-        <header>
-            <div class="review-core">
-                <h1> Review Core</h1>
+</head>
+<body>
+    <main class="review_container">
+        <div class="game_list_container">
+            <ul class="game_list" id="game_list">
+            </ul>
+        </div>
+        <form class="review_form" id="review-form">
+            <header>
+                <div class="review-core">
+                    <h1> Review Core</h1>
+                </div>
+            </header>
+            
+            <div class="col-12 col-sm-5">
+                <label for="review-header">Input the Review's Title</label><br>
+                <input type="text" class="form-control " id="review-header" name="review-header"><br>
             </div>
-        </header>
-        
-        <div class="col-12 col-sm-5">
-            <h2>Write a Review</h2>
-            <label for="gamename">Input the Game's Name</label><br>
-            <input type="text" class="form-control" id="gamename" name="gamename"><br>
-        </div>
 
-        <div class="col-12 col-sm-5">
-            <label for="rating">Rate the Game Out of 5</label>
-            <select class="form-control" id="rating">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select><br>
-          </div>
+            <div class="write-review-box col-12 col-sm-8">
+                <label for="writereview">Write Your Review Here</label>
+                <textarea class="form-control" id="writereview" rows="5"></textarea><br>
+            </div>
 
-        <div class="col-12 col-sm-5">
-            <label for="gamegenre">Input the Game's Genre</label><br>
-            <input type="text" class="form-control " id="gamegenre" name="gamegenre"><br>
-        </div>
+            <div class="col-12 col-sm-5">
+                <label for="rating">Rate the Game Out of 5</label>
+                <select class="form-control" id="rating">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                </select><br>
+            </div>
+            
+            <input type="submit" value="Submit">
 
-        <div class="col-12 col-sm-5">
-            <label for="steamlink">Add a Steam Link</label><br>
-            <input type="text" class="form-control" id="steamlink" name="steamlink"><br>
-        </div>
-
-        <div class="write-review-box col-12 col-sm-8">
-            <label for="writereview">Write Your Review Here</label>
-            <textarea class="form-control" id="writereview" rows="5"></textarea><br>
-        </div>
-
+<<<<<<< HEAD
         <input type="submit" value="Submit">
 <<<<<<< HEAD
 
@@ -55,4 +52,11 @@
 >>>>>>> 91b4e908eb5dcb5142e927d15b0a7b56c1d4a972
     </form>
   </body>
+=======
+        </form>
+    </main>    
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="js/review.js"></script>
+>>>>>>> 4d81fa270e0a7f3970c4cf17b4f1da5c66bcdde6
 </html>

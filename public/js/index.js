@@ -1,12 +1,15 @@
 const reviewRowEl = $("#review-row");
 const REVIEWPAGEURL = '';
 const REVIEWCOLCLASS = 'col-12';
+const SessionData = JSON.parse(sessionStorage.getItem("UserSession"));
 
 document.getElementById("review-row").addEventListener('click', (event) => {
     if (event.target.tagname !== "A") { return; }
-    localStorage.setItem("ReviewData" + reviews[event.target.id]);
+    localStorage.setItem("ReviewData", reviews[event.target.id]);
     //window.replace(REVIEWPAGEURL);
 }, true);
+
+$("#username-display").text(SessionData.user.username);
 
 let reviews = [];
 
@@ -15,7 +18,10 @@ function init(){
 }
 
 function getReviews(){
-    fetch ('api/review/')
+    fetch ('api/review/', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    })
     .then(response => {
         return response.json();
     })
