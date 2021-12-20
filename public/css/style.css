@@ -97,9 +97,14 @@ footer {
 }
 
 .game_list_container{
-
+    overflow: scroll;
+    height: 500px;
 }
 
 .game_list_card{
     list-style-type: none;
+}
+
+.game_list_card img{
+
 }

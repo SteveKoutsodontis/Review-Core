@@ -24,3 +24,5 @@ router.get('/:id', async (req, res) => {
         res.status(500).json({message:"IDK how this is error"});
     }
 });
+
+module.exports = router;

@@ -12,7 +12,6 @@
     <main class="review_container">
         <div class="game_list_container">
             <ul class="game_list" id="game_list">
-                <!--<li class="game_list_card"></li>-->
             </ul>
         </div>
         <form class="review_form" id="review-form">
@@ -23,9 +22,13 @@
             </header>
             
             <div class="col-12 col-sm-5">
-                <h2>Write a Review</h2>
-                <label for="gamename">Input the Game's Name</label><br>
-                <input type="text" class="form-control" id="gamename" name="gamename"><br>
+                <label for="review-header">Input the Review's Title</label><br>
+                <input type="text" class="form-control " id="review-header" name="review-header"><br>
+            </div>
+
+            <div class="write-review-box col-12 col-sm-8">
+                <label for="writereview">Write Your Review Here</label>
+                <textarea class="form-control" id="writereview" rows="5"></textarea><br>
             </div>
 
             <div class="col-12 col-sm-5">
@@ -38,22 +41,7 @@
                 <option>5</option>
                 </select><br>
             </div>
-
-            <div class="col-12 col-sm-5">
-                <label for="gamegenre">Input the Game's Genre</label><br>
-                <input type="text" class="form-control " id="gamegenre" name="gamegenre"><br>
-            </div>
-
-            <div class="col-12 col-sm-5">
-                <label for="steamlink">Add a Steam Link</label><br>
-                <input type="text" class="form-control" id="steamlink" name="steamlink"><br>
-            </div>
-
-            <div class="write-review-box col-12 col-sm-8">
-                <label for="writereview">Write Your Review Here</label>
-                <textarea class="form-control" id="writereview" rows="5"></textarea><br>
-            </div>
-
+            
             <input type="submit" value="Submit">
 
         </form>
