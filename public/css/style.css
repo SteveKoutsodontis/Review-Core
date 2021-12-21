@@ -2,8 +2,12 @@
     box-sizing: border-box;
 }
 
+html {
+    background-color: lightgrey;
+}
+
 body {
-    background-color: white;
+    background-color: lightgrey;
 }
 
 .review-core {
@@ -11,10 +15,30 @@ body {
 }
 
 nav {
-    background-color: lightsalmon;
+    background-color: salmon;
+    border-style: ridge;
+    border-color: black;
 }
 
-.login-link {
+nav ul {
+    list-style-type: none;
+}
+
+nav li {
+    text-align: right;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+nav a {
+    color: black;
+}
+
+nav a:hover {
+    color: darkslategrey
+}
+
+.nav-bar {
     text-align: right;
 }
 
@@ -23,12 +47,15 @@ nav {
 }
 
 header {
-    background-color:lightblue;
+    background-color:slategrey;
+    border-style: ridge;
+    border-color: black;
+    border-bottom: none;
 }
 
 
 .description {
-    background-color: lightgreen;
+    background-color: lightgrey;
     text-align: center;
     font-size: large;
 }
@@ -47,7 +74,7 @@ header {
 }
 
 footer {
-    background-color: lightblue;
+    background-color: slategrey;
     text-align: center;
 }
 
@@ -56,12 +83,22 @@ footer {
 }
 /* // Log in // */
 
-.login-form {
+.row{
     background-color: lightgrey;
 }
 
+.login-form {
+    background-color: white;
+    border-style: ridge;
+    border-color: black;
+    border-top: none;
+}
+
 .signup-form {
-    background-color: lightgreen;
+    background-color: white;
+    border-style: ridge;
+    border-color: black;
+    border-top: none;
 }
 
 
@@ -75,24 +112,28 @@ footer {
     text-align: center;
 }
 .review-head {
-    background-color: lightgreen;
+    background-color: salmon;
 }
 .review-rating {
-    background-color: lightyellow;
+    background-color: lightgrey;
 }
 .review-body {
-    background-color: rosybrown;
+    background-color: lightgrey;
 }
 .review-link {
-    background-color: lightsalmon;
+    background-color: lightgrey;
 }
 
 .review_container{
-    display: flex;
-    flex-flow: row nowrap;
+    /* display: flex;
+    flex-flow: row nowrap; */
+    background-color: lightgrey;
 }
 
 .review_form{ 
+    /* background-color: lightgrey; */
+    /* border-style: ridge;
+    border-color: black; */
 }
 
 .game_list{
@@ -105,10 +146,16 @@ footer {
 }
 
 .game_list_container{
+    background-color: lightgrey;
     overflow: scroll;
-    height: 500px;
-    width: 500px;
+    height: 400px;
+    width: 400px;
+    float: top;
+    /* border-style: ridge;
+    border-color: black;
+    border-top: none; */
 }
+
 
 .game_list_card{
     list-style-type: none;
@@ -121,3 +168,10 @@ footer {
 .game_list_card img{
 
 }
+
+@media screen and (max-width: 576px) {
+    header img{
+        max-width: 75%;
+        height: auto;
+    }
+  }
