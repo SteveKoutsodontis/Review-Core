@@ -24,6 +24,7 @@
 * Sequilize
 * Jquery
 * Bootstrap
+* New Tech: Anime.js
 
 
 ## Description
