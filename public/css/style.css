@@ -16,9 +16,18 @@ body {
 
 nav {
     background-color: salmon;
-    border-bottom: 5px;
     border-style: ridge;
     border-color: black;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav li {
+    text-align: right;
+    display: inline-block;
+    margin-left: 25px;
 }
 
 .login-link {
@@ -31,6 +40,8 @@ nav {
 
 header {
     background-color:slategrey;
+    /* border-style: ridge;
+    border-color: black */
 }
 
 
@@ -129,3 +140,10 @@ footer {
 .game_list_card img{
 
 }
+
+@media screen and (max-width: 576px) {
+    header img{
+        max-width: 75%;
+        height: auto;
+    }
+  }
