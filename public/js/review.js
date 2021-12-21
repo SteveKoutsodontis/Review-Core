@@ -1,9 +1,14 @@
 const gameListEl = $("#game_list");
+const sessionData = JSON.parse(sessionStorage.getItem("UserSession"));
 // Get our games and render them
 let games = [];
 let selectedGame;
 // Init function does the necessary setup
 function init(){
+    if (!sessionData.logged_in){
+        if (!alert("You must be logged in to create a review. Click OK to be redirected to login page."))
+            window.location.replace("/login.html"); return;
+    }
     fetch('/api/game/')
     .then(response => {
         return response.json();
@@ -66,7 +71,8 @@ const reviewFormHandler = function (event){
         review_header: reviewHeader,
         review_text: writereview,
         star_rating: rating,
-        game_id: selectedGame.id
+        game_id: selectedGame.id,
+        user_id: sessionData.user.id
     }
     data = JSON.stringify(data)
     fetch('/api/review/', {

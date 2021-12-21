@@ -11,7 +11,7 @@ User.hasMany(Review, {
 });
 
 User.hasMany(Comment, {
-    foreignKey: 'userId',
+    foreignKey: 'user_id',
     onDelete: 'CASCADE'
 });
 
@@ -21,17 +21,17 @@ Review.belongsTo(User, {
 });
 
 Review.hasMany(Comment, {
-    foreignKey: 'user_id',
+    foreignKey: 'review_id',
     onDelete: 'CASCADE'
 });
 
 Comment.belongsTo(User, {
-    foreignKey: 'userId',
+    foreignKey: 'user_id',
     onDelete: 'CASCADE'
 });
 
 Comment.belongsTo(Review, {
-    foreignKey: 'userId',
+    foreignKey: 'review_id',
     onDelete: 'CASCADE'
 });
 
@@ -39,6 +39,7 @@ Review.belongsTo(Game, {
     foreignKey: 'game_id',
     onDelete: 'CASCADE'
 });
+
 
 module.exports = {
     User,

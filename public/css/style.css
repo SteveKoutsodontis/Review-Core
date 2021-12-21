@@ -51,6 +51,9 @@ footer {
     text-align: center;
 }
 
+.row a{
+    display: block;
+}
 /* // Log in // */
 
 .login-form {

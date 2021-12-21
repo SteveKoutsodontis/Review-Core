@@ -1,12 +1,34 @@
 //TODO Steve: Create api routes for getting, posting, and deleting comment information from the server //No reference yet maybe wait on this one
 const router = require('express').Router();
+const res = require('express/lib/response');
 const { User, Review, Game, Comment } = require('../../models');
+const SUPERENCRYPTION = (_encryptionData) => {return 'Psych you thought we would return the actual password hash, what do you think we are stupid?';}
+const errorFunction = (err) => { console.log(err); res.status(500).json(err); }
 
 // The `/api/review` endpoint
+//Get all reviews
 router.get('/', (req, res) => {
+    console.log("GET: /api/review/");
     Review.findAll().then(response => res.json(response)) 
 });
-    // create a single review
+
+// GET a single review // attach for search review
+router.get('/:id', async (req, res) => {
+    console.log("GET: /api/review/:id")
+    try{
+        console.log(req.params.id);
+        const reviewData = await Review.findByPk(req.params.id, 
+        {include: [{model: User},{model: Game}]});
+        console.log(reviewData);
+        //reviewData.user.password = SUPERENCRYPTION(reviewData.user.password);
+        res.status(200).json(reviewData);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+ });
+
+// create a single review
 router.post('/', async (req, res) => {
   try {
     if (!req.body.review_header || !req.body.review_text || !req.body.star_rating || !req.body.game_id) {
@@ -21,11 +43,6 @@ router.post('/', async (req, res) => {
   } catch (err) {
       res.status(500).json(err);
   }
-});
-// GET a single review // attach for search review
-router.get('/:id', async (req, res) => {
-   Review.findByPk(req.params.id,
-    {include: [{model: User},{model: Game},{model: Comment}]})
 });
 
 //   // create a new category
