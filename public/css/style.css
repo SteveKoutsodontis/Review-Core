@@ -100,13 +100,23 @@ footer {
     list-style-type: none;
 }
 
+.game_list a{
+    display: block;
+    z-index: 10;
+}
+
 .game_list_container{
     overflow: scroll;
     height: 500px;
+    width: 500px;
 }
 
 .game_list_card{
     list-style-type: none;
+}
+
+.unclickable {
+    pointer-events: none;
 }
 
 .game_list_card img{

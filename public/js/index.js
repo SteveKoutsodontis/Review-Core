@@ -1,3 +1,4 @@
+//TODO: Fix buttons and add different stuff to show logged in
 const reviewRowEl = $("#review-row");
 const REVIEWPAGEURL = '';
 const REVIEWCOLCLASS = 'col-12';
