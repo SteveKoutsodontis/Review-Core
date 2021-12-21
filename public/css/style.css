@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+html {
+    background-color: lightgrey;
+}
+
 body {
     background-color: lightgray;
 }
@@ -12,6 +16,9 @@ body {
 
 nav {
     background-color: salmon;
+    border-bottom: 5px;
+    border-style: ridge;
+    border-color: black;
 }
 
 .login-link {
