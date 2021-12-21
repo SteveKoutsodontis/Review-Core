@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Comment } = require('../../models');
 
+//TODO: Test Comment routes
 router.get('/', async (req, res) => {
     Comment.findAll({})
         .then(commentData => res.json(commentData))
