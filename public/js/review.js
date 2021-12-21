@@ -7,7 +7,7 @@ let selectedGame;
 function init(){
     if (!sessionData.logged_in){
         if (!alert("You must be logged in to create a review. Click OK to be redirected to login page."))
-            window.location.replace("/login.html"); return;
+            window.location.href = "/login.html"; return;
     }
     fetch('/api/game/')
     .then(response => {
@@ -81,7 +81,7 @@ const reviewFormHandler = function (event){
         body: data
     })
     .then(_response => {
-        window.location.replace('/index.html')
+        window.location.href = '/index.html';
     })
     .catch(error => {
         console.log(error);

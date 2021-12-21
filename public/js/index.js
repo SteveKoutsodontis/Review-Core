@@ -8,7 +8,8 @@ let reviews = [];
 
 function init(){
     getReviews();
-    $("#username-display").text(SessionData.user.username);
+    if (SessionData)
+        $("#username-display").text(!SessionData.user.username ? "Not logged in" : SessionData.user.username);
 }
 
 function getReviews(){
@@ -61,5 +62,5 @@ init();
 $("#review-row").on('click', (event) => {
     if (event.target.tagName !== "A") { return; }
     localStorage.setItem("ReviewData", JSON.stringify(reviews[event.target.id]));
-    window.location.replace(REVIEWPAGEURL);
+    window.location.href = REVIEWPAGEURL;
 });
