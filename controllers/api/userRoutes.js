@@ -1,7 +1,19 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const SUPERENCRYPTION = (_encryptionData) => {return 'Psych you thought we would return the actual password hash, what do you think we are stupid?';}
 
-// The `/api/user` endpoint
+// The `/api/users` endpoint
+router.get('/:id', async (req, res) => {
+  try{
+    const userData = await User.findOne({where: {id: req.params.id}})
+    userData.password = SUPERENCRYPTION(userData.password);
+    res.status(200).json(userData);
+  } catch(err) {
+    res.status(500).json(err);
+  }
+});
+
+//Create a single user
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
@@ -9,7 +21,7 @@ router.post('/', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      userData.password = 'Psych you thought we would return the actual password hash, what do you think we are stupid?';
+      userData.password = SUPERENCRYPTION(userData.password);
       res.status(200).json({
         message: 'You are now logged in!', 
         user: userData,
@@ -21,7 +33,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-    // create a single User
+//Get a session logged into a user that has already been made
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
@@ -46,7 +58,7 @@ router.post('/login', async (req, res) => {
       req.session.user_id = userData.id;
       req.session.username = userData.username;
       req.session.logged_in = true;
-      userData.password = 'Psych you thought we would return the actual password hash, what do you think we are stupid?';
+      userData.password = SUPERENCRYPTION(userData.password);
       res.json({ user: userData, message: 'You are now logged in!', logged_in: true});
     });
 

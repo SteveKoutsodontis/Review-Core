@@ -1,38 +1,51 @@
 const router = require('express').Router();
 const { Comment } = require('../../models');
 
-//TODO: Test Comment routes
 router.get('/', async (req, res) => {
-    Comment.findAll({})
-        .then(commentData => res.json(commentData))
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
+    Comment.findAll()
+    .then(commentData => res.status(200).json(commentData))
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
 });
 
-router.post('/', async (req, res) => {
-    if (req.session) {
-        Comment.create({
-            text: req.body.text,
-            post_id: req.body.post_id,
-            user_id: req.session.user_id,
-        })
-            .then(commentData => res.json(commentData))
-            .catch(err => {
-                console.log(err);
-                res.status(400).json(err);
-            });
+router.get('/:reviewid', async (req, res) => {
+    console.log("GET: api/comment/:reviewid");
+    try{
+        let commentData = await Comment.findAll({where: {review_id: req.params.reviewid}});
+        res.status(200).json(commentData);
+    } catch (err){
+        console.log(err);
+        res.status(500).json(err);
     }
 });
 
+router.post('/', (req, res) => {
+        Comment.create({
+            text: req.body.text,
+            review_id: req.body.review_id,
+            user_id: req.body.user_id,
+        })
+        .then(commentData => res.status(200).json(commentData))
+        .catch(err => {
+            console.log(err);
+            res.status(400).json(err);
+        });
+    }
+);
+
 router.put('/:id', async (req, res) => {
-    const requestData = await Comment.update(req.body, {
-        where: {
-            id: req.params.id
-        }
-    });
-    res.status(200).json(req.body)
+    try{
+        const requestData = await Comment.update(req.body, {
+            where: {
+                id: req.params.id
+            }
+        });
+        res.status(200).json(requestData)
+    } catch (err) {
+        res.status(500).json(err);
+    }
 });
 
 router.delete('/:id', async (req, res) => {

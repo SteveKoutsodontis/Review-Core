@@ -39,10 +39,21 @@
             </h4>
         </div>
     </nav>
-
-<main>
-        <div id= "all_reviews"></div>
+    <main>
+        <div>
+            <h2 id="review-header"></h2>
+            <p id="review-text"></p>
+            <h3 id="review-rating"></h3>
+            <h4 id="review-user"></h4>
+        </div>
+        <form id ="comment-form">
+            <input type="text" id="comment-text" placeholder="Type your comment here">
+            <input type="submit" value="Submit">
+        </form>
+        <div id="comments-container">
+        </div>
     </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="./js/reviewpage.js"></script>
 </body>
 </html>

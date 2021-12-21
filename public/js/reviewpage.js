@@ -1,51 +1,109 @@
-// todo: store review in local storage
-// use sample data to create review.js
-// use from index.js  ReviewData for the local storage
-// functionality of review page. and to set comments below the review.
+const SessionData = JSON.parse(sessionStorage.getItem("UserSession"));
+let reviewData;
+let comments;
 
+async function reviewInit(){
+    const reviewHeader = $("#review-header");
+    const reviewText = $("#review-text");
+    const reviewRating = $("#review-rating");
+    const reviewUser = $("#review-user");
+    if (!reviewData){
+        if (!alert("No review found returning home."))
+            window.location.replace("/index.html"); return;
+    }
+    reviewHeader.text(reviewData.review_header);
+    reviewText.text(reviewData.review_text);
+    reviewRating.text(reviewData.star_rating);
+    reviewUser.text(!reviewData.User.username ? "unknown": reviewData.User.username);
+}
 
-// Get the data from our database 
-// and then dynamically create a card for each review.
-// 1. have a element to the html that the review will go. 
+function commentsInit(){
+    console.log(comments);
+    for(let i = 0; i < comments.length; i++){
+        generateCommentCards(comments[i], i);
+    }
+}
 
-async function getReviews() {
-    const response = await fetch('/api/review')
-    const reviews = await response.json()
-    console.log(reviews)
-    const all_reviews_div = document.getElementById('all_reviews')
-    reviews.forEach((review) => {
-        const reviewContainer = document.createElement('div')
-        const reviewHeaderEl = document.createElement('h2')
-        const reviewTextEl = document.createElement('p')
-        const reviewRatingEl = document.createElement('h3')
-        const reviewUserEl = document.createElement('h4')
+async function generateCommentCards(commentData, index){
+    console.log($("#comments-container"));
+    //Create elements
+    const commentCardEl = $("<div>");
+    const usernameEl = $("<h2>");
+    const commentTextEl = $("<p>");
+    //Add text
+    commentTextEl.text(commentData.text);
+    //Set attributes
+    commentCardEl.attr('id', index+"");
+    //Append elements
+    commentCardEl.append([usernameEl, commentTextEl]);
+    $("#comments-container").append(commentCardEl);
+    //Async last
+    usernameEl.text(await getUsername(commentData.user_id));
+}
 
-        reviewHeaderEl.textContent = review.review_header
-        reviewTextEl.textContent = review.review_text
-        reviewRatingEl.textContent = review.star_rating
-        reviewUserEl.textContent = review.user_id
+async function getUsername(id){
+    let response = await fetch('/api/users/'+id);
+    response = response.json();
+    return response.username;
+}
 
-        reviewContainer.append(reviewHeaderEl)
-        reviewContainer.append(reviewTextEl)
-        reviewContainer.append(reviewRatingEl)
-        reviewContainer.append(reviewUserEl)
+async function init(){
+    reviewData = JSON.parse(localStorage.getItem("ReviewData"));
+    let response = await fetch('/api/review/'+reviewData.id);
+    reviewData = await response.json();
+    reviewInit();
+    console.log(reviewData.id);
+    response = await fetch('/api/comment/'+reviewData.id);
+    comments = await response.json();
+    commentsInit();
+}
 
-
-
-        all_reviews_div.append(reviewContainer)
-
+const commentFormHandler = function (event) {
+    event.preventDefault();
+    //Make sure the user is logged in
+    if (!SessionData.logged_in)
+        if (!alert("You need to be logged in to make comments. Redirecting you to login page.")){
+            window.location.replace("/login.html"); 
+            return;
+        }
+    const commentText = $("#comment-text").val();
+    let body = {
+        text: commentText,
+        review_id: reviewData.id,
+        user_id: SessionData.user.id
+    }
+    fetch('/api/comment/', {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+    })
+    .then(response => {
+        return response.json();
+    })
+    .then(data => {
+        console.log(data);
+        comments.push(data);
+        pushComment();
     })
 }
 
-getReviews();
-
-
-
-const homeBtn = document.getElementById('home')
-function goToHome() {
-   // fetch('/')
-    window.location.replace('/index')
+async function pushComment(){
+    //Create elements
+    const commentCardEl = $("<div>");
+    const usernameEl = $("<h2>");
+    const commentTextEl = $("<p>");
+    //Add text
+    commentTextEl.text(comments[comments.length-1].text);
+    //Set attributes
+    commentCardEl.attr('id', comments.length-1+"");
+    //Append elements
+    commentCardEl.append([usernameEl, commentTextEl]);
+    $("#comments-container").append(commentCardEl);
+    //Async last
+    console.log(comments);
+    usernameEl.text(await getUsername(comments[comments.length-1].user_id));
 }
 
+$("#comment-form").on('submit', commentFormHandler);
 
-homeBtn.addEventListener('click', goToHome)
+init();
