@@ -34,8 +34,8 @@ const gameData = [
   {
     name: 'The Ascent',
     genre: "Top-Down Shooter, Cyberpunk, Action, RPG",
-    steam_link: "https://store.steampowered.com/app/1085660/Destiny_2/",
-    image_url: "https://cdn.cloudflare.steamstatic.com/steam/apps/1085660/header.jpg?t=1638897108",
+    steam_link: "https://store.steampowered.com/app/979690/The_Ascent/",
+    image_url: "https://cdn.cloudflare.steamstatic.com/steam/apps/979690/header.jpg?t=1639576873",
   },
   {
     name: 'Astroneer',
@@ -65,7 +65,7 @@ const gameData = [
     name: 'Darkest Dungeon',
     genre: "Turn-Based Combat, Dark Fantasy, Roguelike, 2D",
     steam_link: "https://store.steampowered.com/app/262060/Darkest_Dungeon/",
-    image_url: "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header.jpg?t=1621944801",
+    image_url: "https://cdn.cloudflare.steamstatic.com/steam/apps/262060/header.jpg?t=1618936132",
   },
   {
     name: 'DARK SOULS III',

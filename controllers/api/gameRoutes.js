@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const fetch = require('node-fetch');
+// TODO: const fetch = require('node-fetch');
 const { Game } = require('../../models');
 // get games
 router.get('/', async (_req, res) => {
