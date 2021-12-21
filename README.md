@@ -62,7 +62,6 @@ Steve Koutsodontis
 Any questions please contact us!
 
 
-
 ## Contact
 
 Check out our other work on GitHub:
@@ -79,7 +78,9 @@ https://github.com/SteveKoutsodontis
 
 ## Website
 
-Deployed Website: 
+Deployed Website: https://review-core.herokuapp.com/index.html
+
+GitHub Link: https://github.com/SteveKoutsodontis/Review-Core
 
 
 
