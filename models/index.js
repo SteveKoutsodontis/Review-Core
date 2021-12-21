@@ -6,7 +6,7 @@ const Comment = require('./Comment');
 
 
 User.hasMany(Review, {
-    foreignKey: 'userId',
+    foreignKey: 'user_id',
     onDelete: 'CASCADE'
 });
 
@@ -36,16 +36,9 @@ Comment.belongsTo(Review, {
 });
 
 Review.belongsTo(Game, {
-    foreignKey: 'user_id',
+    foreignKey: 'game_id',
     onDelete: 'CASCADE'
 });
-
-
-//TODO Austin: Comment belongsTo User onDelete: CASCADE
-
-//TODO Steve: Comment belongsTo Review onDelete should delete comments if the review is deleted
-
-//TODO Chris: Review belongsTo Game onDelete of game reviews should also be deleted
 
 module.exports = {
     User,

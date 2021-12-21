@@ -1,5 +1,5 @@
 const router = require('express').Router();
-// const fetch = require('node-fetch');
+// TODO: const fetch = require('node-fetch');
 const { Game } = require('../../models');
 // get games
 router.get('/', async (_req, res) => {
@@ -20,7 +20,14 @@ router.get('/:id', async (req, res) => {
         //if !data
         //api request
         //Game.create(api info)
-        res.status(200).json({message:"Nothing to see here"});
+        let data;
+        if (req.params.id !== 'none')
+            data = await Game.findOne({where: {id: req.params.id}});
+        else
+            if (!req.body.name) {res.status("400").json({message: "No name given in request body."}); return;}
+            data = await Game.findOne({where: {name: req.body.name}});
+        //TODO: figure out how to use twitch api
+        res.status(200).json({message:"Nothing to see here", game: data});
     } catch(error){
         res.status(500).json({message:"IDK how this is error"});
     }

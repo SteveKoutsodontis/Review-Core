@@ -1,4 +1,3 @@
-
 // todo: store review in local storage
 // use sample data to create review.js
 // use from index.js  ReviewData for the local storage
