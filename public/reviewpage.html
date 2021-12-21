@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <title>Review Core</title>
+    <title>Reviews - Review Core</title>
 </head>
 
 <body>
@@ -16,27 +16,29 @@
         </div>
     </header>
     <nav>
-        <h4>
-            <button id='home'>Return to Homepage</button>
-        </h4>
-        
-    </nav>
-
-    <nav>
-        <div class="login-link">
+        <div class="nav-bar">
             <h4>
-                <div class="username-display" id="username-display">Username Display</div>
-                <a href="./index.html">Home</a>
-                <a href="./review.html">Create Review</a>
-                <a href="./user.html">User Dashboard</a>
+                <ul>
+                    <li>
+                        <div class="username-display" id="username-display">Username</div>
+                    </li>
+                    <li>
+                        <a href="./index.html">Home</a>
+                        <!-- <a href="./user.html">User Dashboard</a> -->
+                    </li>
+                    <li>
+                        <a href="./review.html">Create Review</a>
+                    </li>
+                    <li>
+                        <a href="./reviewpage.html">View Reviews</a>
+                    </li>
+                    <li>
+                        <a href="./login.html">Log In</a>
+                    </li>
+                </ul>
             </h4>
         </div>
     </nav>
-
-
-
-
-
 
 <main>
         <div id= "all_reviews"></div>
