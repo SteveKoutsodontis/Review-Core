@@ -1,9 +1,7 @@
 //TODO: Log out
 const reviewRowEl = $("#review-row");
 const REVIEWPAGEURL = '/reviewPage.html';
-const REVIEWCOLCLASS = 'col-12';
 const SessionData = JSON.parse(sessionStorage.getItem("UserSession"));
-
 let reviews = [];
 
 function init(){
@@ -30,19 +28,20 @@ function getReviews(){
     });
 }
 
-function generateReviewCards(){
+async function generateReviewCards(){
     for (let i = 0; i < reviews.length; i++){
         //Creating Elements
         let reviewAnchorEl = $("<a>");
         let reviewDivColEl = $("<div>");
         let reviewCardEl = $("<div>");
+        let gameNameEl = $("<h2>");
         let reviewTitleEl = $("<h3>");
         let reviewTextEl = $("<p>");
         //Adding Text
         reviewTitleEl.text(reviews[i].review_header);
         reviewTextEl.text(reviews[i].review_text);
         //Adding attributes
-        reviewDivColEl.attr('class', REVIEWCOLCLASS);
+        reviewDivColEl.attr('class', 'col-12');
         reviewCardEl.attr("class", "review");
         reviewAnchorEl.attr("id", i+"");
         //Make elements unclickable
@@ -50,12 +49,23 @@ function generateReviewCards(){
         reviewCardEl.attr('class', reviewCardEl.attr('class') + " unclickable");
         reviewTitleEl.attr('class', reviewTitleEl.attr('class') + " unclickable");
         reviewTextEl.attr('class', reviewTextEl.attr('class') + " unclickable");
+        gameNameEl.attr('class', gameNameEl.attr('class') + " unclickable");
         // Append elements
-        reviewCardEl.append([reviewTitleEl, reviewTextEl]);
+        reviewCardEl.append([gameNameEl, reviewTitleEl, reviewTextEl]);
         reviewDivColEl.append(reviewCardEl);
         reviewAnchorEl.append(reviewDivColEl);
         reviewRowEl.append(reviewAnchorEl);
+        //Async at the end
+        gameNameEl.text(await getGameName(reviews[i].game_id));
     }
+}
+
+async function getGameName(id){
+    if (!id) {return "Game N/A"}
+    const response = await fetch('/api/game/'+id);
+    let gameData = await response.json();
+    console.log(gameData);
+    return gameData.name;
 }
 
 init();

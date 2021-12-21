@@ -49,10 +49,12 @@ function generateCard(gameData, index){
 // Event on game card click
 const gameCardHandler = function (event){
     event.preventDefault();
-    console.log(event.target.tagName)
     if (event.target.tagName === "A"){
+        //Set previously selected game to its index in the array
+        if ($("#selected-game").length !== 0)
+            $("#selected-game").attr("id", games.indexOf(selectedGame));
         selectedGame = games[event.target.id];
-        console.log(selectedGame);
+        $(`#${event.target.id}`).attr("id", "selected-game");
     }
 }
 
@@ -62,6 +64,7 @@ const reviewFormHandler = function (event){
     if (!selectedGame) {
         alert("You must select the game the review is for.")
         // TODO: Add visual effect to highlight game selection area
+        //Use animate
         return;
     }
     const reviewHeader = $("#review-header").val();
