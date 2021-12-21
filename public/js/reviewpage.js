@@ -44,7 +44,7 @@ getReviews();
 const homeBtn = document.getElementById('home')
 function goToHome() {
    // fetch('/')
-    window.location.replace('/login')
+    window.location.replace('/index')
 }
 
 

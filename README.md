@@ -25,8 +25,8 @@
 
 ## Description
 
-Review Core is an application that allows the user to upon reaching the front page either Create or Login. Then Shows the user the option to either Create or View Reviews that were previously created by that user or other users. Along with Comments attached to those reviews from users. 
-The users has the option to Select from a list of games to choose which they would like to make a review on.
+Review Core is an application that allows the user to upon reaching the front page either Create a User id or Login. Then Shows the user the option to either Create or View Reviews that were previously created by that user or other users. Along with Comments attached to those reviews from users. 
+The users has the option to Select from a list of games to choose which they would like to make a review on, then give a description of their review and a rating from 1-5. Then by clicking submit have that review show on the front page where others can see it.
 
 
 
