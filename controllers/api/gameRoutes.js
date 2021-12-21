@@ -13,13 +13,6 @@ router.get('/', async (_req, res) => {
 
 router.get('/:id', async (req, res) => {
     try{
-        //if req.params.id !== null
-        //data = Game.findOne({where: {id: req.params.id}})
-        //else
-        //data = Game.findOne({where: {name: req.body.name}})
-        //if !data
-        //api request
-        //Game.create(api info)
         let data;
         if (req.params.id !== 'none')
             data = await Game.findOne({where: {id: req.params.id}});

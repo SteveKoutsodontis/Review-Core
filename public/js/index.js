@@ -1,21 +1,14 @@
-//TODO: Fix buttons and add different stuff to show logged in
+//TODO: Log out
 const reviewRowEl = $("#review-row");
-const REVIEWPAGEURL = '';
+const REVIEWPAGEURL = '/reviewPage.html';
 const REVIEWCOLCLASS = 'col-12';
 const SessionData = JSON.parse(sessionStorage.getItem("UserSession"));
-
-document.getElementById("review-row").addEventListener('click', (event) => {
-    if (event.target.tagname !== "A") { return; }
-    localStorage.setItem("ReviewData", reviews[event.target.id]);
-    //window.replace(REVIEWPAGEURL);
-}, true);
-
-$("#username-display").text(SessionData.user.username);
 
 let reviews = [];
 
 function init(){
     getReviews();
+    $("#username-display").text(SessionData.user.username);
 }
 
 function getReviews(){
@@ -28,6 +21,7 @@ function getReviews(){
     })
     .then(data => {
         reviews = data;
+        console.log(reviews);
         generateReviewCards();
     })
     .catch(err => {
@@ -49,7 +43,12 @@ function generateReviewCards(){
         //Adding attributes
         reviewDivColEl.attr('class', REVIEWCOLCLASS);
         reviewCardEl.attr("class", "review");
-        reviewCardEl.attr("id", i+"");
+        reviewAnchorEl.attr("id", i+"");
+        //Make elements unclickable
+        reviewDivColEl.attr('class', reviewDivColEl.attr('class') + " unclickable");
+        reviewCardEl.attr('class', reviewCardEl.attr('class') + " unclickable");
+        reviewTitleEl.attr('class', reviewTitleEl.attr('class') + " unclickable");
+        reviewTextEl.attr('class', reviewTextEl.attr('class') + " unclickable");
         // Append elements
         reviewCardEl.append([reviewTitleEl, reviewTextEl]);
         reviewDivColEl.append(reviewCardEl);
@@ -59,3 +58,8 @@ function generateReviewCards(){
 }
 
 init();
+$("#review-row").on('click', (event) => {
+    if (event.target.tagName !== "A") { return; }
+    localStorage.setItem("ReviewData", JSON.stringify(reviews[event.target.id]));
+    window.location.replace(REVIEWPAGEURL);
+});

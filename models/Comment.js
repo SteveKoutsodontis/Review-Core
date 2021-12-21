@@ -15,8 +15,12 @@ Comment.init(
             autoIncrement: true,
         },
         review_id: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             allowNull: false,
+            references: {
+                model: 'Review',
+                key: "id"
+            }
         },
         text: {
             type: DataTypes.STRING,

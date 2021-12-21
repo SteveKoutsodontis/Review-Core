@@ -1,7 +1,6 @@
 const path = require('path');
 const express = require('express');
 const routes = require("./controllers")
-//TODO: Import routes here
 
 const session = require('express-session');
 
@@ -26,7 +25,6 @@ app.use(session(sess));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(express.static('public'));
-// TODO: Link routes
 app.use(routes)
 
 app.listen(PORT, () => {
