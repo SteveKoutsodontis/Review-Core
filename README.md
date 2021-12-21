@@ -21,6 +21,10 @@
 * Node.JS
 * Express.JS
 * Heroku
+* Sequilize
+* Jquery
+* Bootstrap
+* New Tech: Anime.js
 
 
 ## Description
