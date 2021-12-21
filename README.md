@@ -21,6 +21,9 @@
 * Node.JS
 * Express.JS
 * Heroku
+* Sequilize
+* Jquery
+* Bootstrap
 
 
 ## Description
