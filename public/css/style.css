@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: white;
+    background-color: lightgray;
 }
 
 .review-core {
@@ -11,7 +11,7 @@ body {
 }
 
 nav {
-    background-color: lightsalmon;
+    background-color: salmon;
 }
 
 .login-link {
@@ -23,12 +23,12 @@ nav {
 }
 
 header {
-    background-color:lightblue;
+    background-color:slategrey;
 }
 
 
 .description {
-    background-color: lightgreen;
+    background-color: lightgrey;
     text-align: center;
     font-size: large;
 }
@@ -47,7 +47,7 @@ header {
 }
 
 footer {
-    background-color: lightblue;
+    background-color: slategrey;
     text-align: center;
 }
 
@@ -55,10 +55,14 @@ footer {
 
 .login-form {
     background-color: lightgrey;
+    border-style: ridge;
+    border-color: black;
 }
 
 .signup-form {
-    background-color: lightgreen;
+    background-color: white;
+    border-style: ridge;
+    border-color: black;
 }
 
 
@@ -72,16 +76,16 @@ footer {
     text-align: center;
 }
 .review-head {
-    background-color: lightgreen;
+    background-color: salmon;
 }
 .review-rating {
-    background-color: lightyellow;
+    background-color: lightgrey;
 }
 .review-body {
-    background-color: rosybrown;
+    background-color: lightgrey;
 }
 .review-link {
-    background-color: lightsalmon;
+    background-color: lightgrey;
 }
 
 .review_container{
