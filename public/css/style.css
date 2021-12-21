@@ -7,7 +7,7 @@ html {
 }
 
 body {
-    background-color: lightgray;
+    background-color: lightgrey;
 }
 
 .review-core {
@@ -16,12 +16,29 @@ body {
 
 nav {
     background-color: salmon;
-    border-bottom: 5px;
     border-style: ridge;
     border-color: black;
 }
 
-.login-link {
+nav ul {
+    list-style-type: none;
+}
+
+nav li {
+    text-align: right;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+nav a {
+    color: black;
+}
+
+nav a:hover {
+    color: darkslategrey
+}
+
+.nav-bar {
     text-align: right;
 }
 
@@ -31,6 +48,9 @@ nav {
 
 header {
     background-color:slategrey;
+    border-style: ridge;
+    border-color: black;
+    border-bottom: none;
 }
 
 
@@ -60,16 +80,22 @@ footer {
 
 /* // Log in // */
 
-.login-form {
+.row{
     background-color: lightgrey;
+}
+
+.login-form {
+    background-color: white;
     border-style: ridge;
     border-color: black;
+    border-top: none;
 }
 
 .signup-form {
     background-color: white;
     border-style: ridge;
     border-color: black;
+    border-top: none;
 }
 
 
@@ -96,11 +122,15 @@ footer {
 }
 
 .review_container{
-    display: flex;
-    flex-flow: row nowrap;
+    /* display: flex;
+    flex-flow: row nowrap; */
+    background-color: lightgrey;
 }
 
 .review_form{ 
+    /* background-color: lightgrey; */
+    /* border-style: ridge;
+    border-color: black; */
 }
 
 .game_list{
@@ -113,10 +143,16 @@ footer {
 }
 
 .game_list_container{
+    background-color: lightgrey;
     overflow: scroll;
-    height: 500px;
-    width: 500px;
+    height: 400px;
+    width: 400px;
+    float: top;
+    /* border-style: ridge;
+    border-color: black;
+    border-top: none; */
 }
+
 
 .game_list_card{
     list-style-type: none;
@@ -129,3 +165,10 @@ footer {
 .game_list_card img{
 
 }
+
+@media screen and (max-width: 576px) {
+    header img{
+        max-width: 75%;
+        height: auto;
+    }
+  }

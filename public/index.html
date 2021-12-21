@@ -19,20 +19,33 @@
     </header>
 
     <nav>
-        <div class="login-link">
+        <div class="nav-bar">
             <h4>
-                <div class="username-display" id="username-display">Username Display</div>
-                <a href="./login.html">Log In</a>
-                <a href="./review.html">Create Review</a>
-                <a href="./reviewpage.html">View Reviews</a>
-                <a href="./user.html">User Dashboard</a>
+                <ul>
+                    <li>
+                        <div class="username-display" id="username-display">Username</div>
+                    </li>
+                    <li>
+                        <a href="./index.html">Home</a>
+                        <!-- <a href="./user.html">User Dashboard</a> -->
+                    </li>
+                    <li>
+                        <a href="./review.html">Create Review</a>
+                    </li>
+                    <li>
+                        <a href="./reviewpage.html">View Reviews</a>
+                    </li>
+                    <li>
+                        <a href="./login.html">Log In</a>
+                    </li>
+                </ul>
             </h4>
         </div>
     </nav>
 
     <main>
         <div class="description">
-            <p>This will be a short description of the webpage and it's features.</p>
+            <p>Write a review for your favorite games, browse other user's reviews, and leave a comment or two if you'd like.</p>
             <button class="review-btn" onclick="document.location.replace('./review.html')">Make a New Review</button>
         </div>
 
@@ -45,9 +58,9 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="./js/index.js"></script>
 
-    <footer>
+    <!-- <footer>
         <p>This is the footer</p>
-    </footer>
+    </footer> -->
 </body>
 
 
