@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
 html {
@@ -121,18 +122,29 @@ footer {
 .review-game {
     text-align: center;
 }
+
 .review-border {
     border-style: ridge;
     border-color: black;
     border-top: none;
 }
+
 #review-user {
     text-align: center;
 }
+
 #review-header {
     text-align: center;
 }
-.review-rating {
+
+#review-text {
+    text-indent: 15px;
+}
+
+#review-rating {
+    text-indent: 15px;
+}
+/* .review-rating {
     background-color: lightgrey;
 }
 .review-body {
@@ -140,10 +152,24 @@ footer {
 }
 .review-link {
     background-color: lightgrey;
-}
+} */
 
 .review_container{
     background-color: lightgrey;
+}
+
+#comment-form {
+    border-style: ridge;
+    border-color: black;
+    border-top: none;
+}
+
+#comments-container {
+    border-style: ridge;
+    border-color: slategrey;
+    /* border-top: none; */
+    background-color: rgb(240, 240, 240);
+    text-indent: 15px;
 }
 
 .game_list{
