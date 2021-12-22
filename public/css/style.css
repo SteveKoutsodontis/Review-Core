@@ -120,10 +120,15 @@ footer {
 .review-game {
     text-align: center;
 }
-.review-user {
+.review-border {
+    border-style: ridge;
+    border-color: black;
+    border-top: none;
+}
+#review-user {
     text-align: center;
 }
-.review-header {
+#review-header {
     text-align: center;
 }
 .review-rating {
