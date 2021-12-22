@@ -36,8 +36,7 @@ The users has the option to Select from a list of games to choose which they wou
 
 ## Install
 
-
-
+After cloning the repository, in the integrated terminal, type "npm i" to install all the necessary packages.
 
 ## Usage
 
