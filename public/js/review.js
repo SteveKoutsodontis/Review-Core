@@ -90,7 +90,21 @@ const reviewFormHandler = function (event){
     if (!selectedGame) {
         alert("You must select the game the review is for.")
         // TODO: Add visual effect to highlight game selection area
-        //Use animate
+        anime({
+            targets: '.game_list_container',
+            keyframes: [
+                {backgroundColor: 'rgba(88, 88, 88, 0.479)'},
+                {backgroundColor: 'rgb(141, 140, 140)'},
+                {backgroundColor: 'rgba(88, 88, 88, 0.479)'},
+                {backgroundColor: 'rgb(141, 140, 140)'},
+                {backgroundColor: 'rgba(88, 88, 88, 0.479)'},
+                {backgroundColor: 'rgb(141, 140, 140)'},
+                {backgroundColor: 'rgb(211, 211, 211)'}
+            ], 
+            duration: 3500,
+            easing: 'linear',
+            loop: false
+        })
         return;
     }
     const reviewHeader = $("#review-header").val();
