@@ -1,4 +1,3 @@
-//TODO Steve: Create api routes for getting, posting, and deleting comment information from the server //No reference yet maybe wait on this one
 const router = require('express').Router();
 const res = require('express/lib/response');
 const { User, Review, Game, Comment } = require('../../models');
@@ -26,7 +25,7 @@ router.get('/:id', async (req, res) => {
         console.log(err);
         res.status(500).json(err);
     }
- });
+ }); 
 
 // create a single review
 router.post('/', async (req, res) => {

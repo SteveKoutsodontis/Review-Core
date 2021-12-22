@@ -8,24 +8,28 @@ async function reviewInit(){
     const reviewRating = $("#review-rating");
     const reviewUser = $("#review-user");
     if (!reviewData){
-        if (!alert("No review found returning home."))
-            window.location.replace("/index.html"); return;
+        if (!alert("No review found returning home.")){
+            window.location.href = "/index.html"; 
+            return;
+        }
     }
     reviewHeader.text(reviewData.review_header);
     reviewText.text(reviewData.review_text);
     reviewRating.text(reviewData.star_rating);
-    reviewUser.text(!reviewData.User.username ? "unknown": reviewData.User.username);
+    if (!reviewData.User){
+        reviewUser.text("unknown");
+    } else {
+        reviewUser.text(!reviewData.User.username ? "unknown": reviewData.User.username);
+    }
 }
 
 function commentsInit(){
-    console.log(comments);
     for(let i = 0; i < comments.length; i++){
         generateCommentCards(comments[i], i);
     }
 }
 
 async function generateCommentCards(commentData, index){
-    console.log($("#comments-container"));
     //Create elements
     const commentCardEl = $("<div>");
     const usernameEl = $("<h2>");
@@ -63,7 +67,7 @@ const commentFormHandler = function (event) {
     //Make sure the user is logged in
     if (!SessionData.logged_in)
         if (!alert("You need to be logged in to make comments. Redirecting you to login page.")){
-            window.location.replace("/login.html"); 
+            window.location.href = "/login.html"; 
             return;
         }
     const commentText = $("#comment-text").val();
