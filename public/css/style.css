@@ -155,11 +155,31 @@ footer {
     z-index: 10;
 }
 
+/*Interactive styles for game list*/
+.game_list a:hover{
+    background-color: rgba(88, 88, 88, 0.479);
+}
+
+.game_list a:active{
+    background-color: rgb(141, 140, 140);
+}
+
+/*Styles the selected game card*/
+#selected-game{
+    background-color: rgb(141, 140, 140);
+}
+/*End of interactive styles for game list*/
+
+.game_list_card img{
+    width: 400px;
+    height: 200px;
+}
+
 .game_list_container{
     background-color: lightgrey;
     overflow: scroll;
     height: 400px;
-    width: 500px;
+    width: 600px;
     float: top;
 }
 
