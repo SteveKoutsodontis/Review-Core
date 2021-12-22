@@ -1,6 +1,31 @@
 const SessionData = JSON.parse(sessionStorage.getItem("UserSession"));
+const logged = document.getElementById("logged")
 let reviewData;
 let comments;
+
+if(SessionData) {
+    logged.innerHTML= "";
+    let newA = document.createElement("a")
+    newA.textContent = "Log Out"
+    newA.setAttribute("href", "#")
+    newA.addEventListener("click", logUserOut);
+
+    logged.appendChild(newA)
+}
+
+async function logUserOut() {
+    const response = await fetch('/api/users/logout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+      });
+    
+      if (response.ok) {
+        sessionStorage.removeItem("UserSession")
+        document.location.replace('/');
+      } else {
+        alert('Failed to log out');
+      }
+}
 
 async function reviewInit(){
     const reviewHeader = $("#review-header");
@@ -17,9 +42,9 @@ async function reviewInit(){
     reviewText.text(reviewData.review_text);
     reviewRating.text(reviewData.star_rating);
     if (!reviewData.User){
-        reviewUser.text("unknown");
+        reviewUser.text("User: unknown");
     } else {
-        reviewUser.text(!reviewData.User.username ? "unknown": reviewData.User.username);
+        reviewUser.text(!reviewData.User.username ? "User: unknown": reviewData.User.username);
     }
 }
 
@@ -52,6 +77,8 @@ async function getUsername(id){
 }
 
 async function init(){
+    if (SessionData)
+        $("#username-display").text(!SessionData.user.username ? "Not logged in" : SessionData.user.username);
     reviewData = JSON.parse(localStorage.getItem("ReviewData"));
     let response = await fetch('/api/review/'+reviewData.id);
     reviewData = await response.json();
@@ -65,7 +92,7 @@ async function init(){
 const commentFormHandler = function (event) {
     event.preventDefault();
     //Make sure the user is logged in
-    if (!SessionData.logged_in)
+    if (!SessionData || !SessionData.logged_in)
         if (!alert("You need to be logged in to make comments. Redirecting you to login page.")){
             window.location.href = "/login.html"; 
             return;

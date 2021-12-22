@@ -1,14 +1,40 @@
 const gameListEl = $("#game_list");
 const sessionData = JSON.parse(sessionStorage.getItem("UserSession"));
+const logged = document.getElementById("logged")
 // Get our games and render them
 let games = [];
 let selectedGame;
+if(sessionData) {
+    logged.innerHTML= "";
+    let newA = document.createElement("a")
+    newA.textContent = "Log Out"
+    newA.setAttribute("href", "#")
+    newA.addEventListener("click", logUserOut);
+
+    logged.appendChild(newA)
+}
+
+async function logUserOut() {
+    const response = await fetch('/api/users/logout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+      });
+    
+      if (response.ok) {
+        sessionStorage.removeItem("UserSession")
+        document.location.replace('/');
+      } else {
+        alert('Failed to log out');
+      }
+}
 // Init function does the necessary setup
 function init(){
-    if (!sessionData.logged_in){
+    if (!sessionData || !sessionData.logged_in){
         if (!alert("You must be logged in to create a review. Click OK to be redirected to login page."))
             window.location.href = "/login.html"; return;
     }
+    if (sessionData)
+        $("#username-display").text(!sessionData.user.username ? "Not logged in" : sessionData.user.username);
     fetch('/api/game/')
     .then(response => {
         return response.json();
