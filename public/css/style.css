@@ -39,6 +39,7 @@ nav li {
     text-align: right;
     display: inline-block;
     margin-left: 20px;
+    margin-right: 10px;
 }
 
 nav a {
