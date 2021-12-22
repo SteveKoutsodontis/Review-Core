@@ -84,8 +84,7 @@ GitHub Link: https://github.com/SteveKoutsodontis/Review-Core
 
 
 
-![Final image]()
-![final image]()
+![Final image](./public/images/review_core1.jpg)
 
 
 
