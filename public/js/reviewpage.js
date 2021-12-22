@@ -15,7 +15,7 @@ async function reviewInit(){
     }
     reviewHeader.text(reviewData.review_header);
     reviewText.text(reviewData.review_text);
-    reviewRating.text(reviewData.star_rating);
+    reviewRating.text(reviewData.star_rating + " out of 5");
     if (!reviewData.User){
         reviewUser.text("unknown");
     } else {
