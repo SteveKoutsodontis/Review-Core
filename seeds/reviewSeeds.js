@@ -2,24 +2,49 @@ const { Review } = require('../models');
 
 const reviewData = [
 {
-    review_header:'reviewheader',
-    review_text: 'reviewtext',
-    star_rating: 'star rating',
+    review_header:'Dying Light',
+    review_text: 'Doing some hardore parkour and killing zombies. Best zombie survival game out there',
+    star_rating: '5 out of 5',
 },
 {
-    review_header:'reviewheader2222',
-    review_text: 'reviewtex22222t',
-    star_rating: 'star ratin2222g',
+    review_header:'Darkest Dungeon',
+    review_text: 'scary to hard i suck at it booo',
+    star_rating: '5 out of 5',
 },
 {
-    review_header:'reviewheader33333',
-    review_text: 'reviewtex3333t',
-    star_rating: 'star rating3333',
+    review_header:'Escape from Tarkov',
+    review_text: 'pew pew hide then pew pew some more',
+    star_rating: '5 out of 5',
 },
 {
-    review_header:'reviewheade44444r',
-    review_text: 'reviewtex4444t',
-    star_rating: 'star rating444',
+    review_header:'Batman Arkham Knight',
+    review_text: 'Who doesnt want to be Batman running around Gotham beating bad guys up!',
+    star_rating: '5 out of 5',
+},
+{
+    review_header:'Little Nightmares',
+    review_text: 'Very creepy love the character and the music makes it very intense and spooky',
+    star_rating: '5 out of 5',
+},
+{
+    review_header:'Destiny 2',
+    review_text: 'Being able to travel to different planets and fight your way through waves of monsters cant get enough',
+    star_rating: '5 out of 5',
+},
+{
+    review_header:'Astroneer',
+    review_text: 'Stranded on a planet with some buddies building a compound and discovering new minerals and making new equipment. This is to cool',
+    star_rating: '5 out of 5',
+},
+{
+    review_header:'Day Z',
+    review_text: 'Surviving the Apocalypse simulator pretty insane!',
+    star_rating: '5 out of 5',
+},
+{
+    review_header:'Age of Empires 4',
+    review_text: 'Great real time strategy game and the campaign is a great history lesson!',
+    star_rating: '5 out of 5',
 }
   
 ];
