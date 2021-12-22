@@ -10,9 +10,20 @@ body {
     background-color: lightgrey;
 }
 
+/* // Header Elements // */
+
+header {
+    background-color:slategrey;
+    border-style: ridge;
+    border-color: black;
+    border-bottom: none;
+}
+
 .review-core {
     text-align: center;
 }
+
+/* // Navbar Elements // */
 
 nav {
     background-color: salmon;
@@ -46,13 +57,7 @@ nav a:hover {
     text-align: left;
 }
 
-header {
-    background-color:slategrey;
-    border-style: ridge;
-    border-color: black;
-    border-bottom: none;
-}
-
+/* // Homepage Elements // */
 
 .description {
     background-color: lightgrey;
@@ -65,8 +70,15 @@ header {
     text-align: center;
 }
 .review {
-    background-color: rosybrown;
+    background-color: White;
     margin: 20px;
+    border-style: ridge;
+    border-color: black;
+    padding: 5px;
+}
+
+.review:hover {
+    border-color: red;
 }
 
 .review h3 {
@@ -81,6 +93,7 @@ footer {
 .row a{
     display: block;
 }
+
 /* // Log in // */
 
 .row{
@@ -102,7 +115,6 @@ footer {
 }
 
 
-
 /* // Review Page // */
 
 .review-game {
@@ -111,8 +123,8 @@ footer {
 .review-user {
     text-align: center;
 }
-.review-head {
-    background-color: salmon;
+.review-header {
+    text-align: center;
 }
 .review-rating {
     background-color: lightgrey;
@@ -125,15 +137,7 @@ footer {
 }
 
 .review_container{
-    /* display: flex;
-    flex-flow: row nowrap; */
     background-color: lightgrey;
-}
-
-.review_form{ 
-    /* background-color: lightgrey; */
-    /* border-style: ridge;
-    border-color: black; */
 }
 
 .game_list{
@@ -149,11 +153,13 @@ footer {
     background-color: lightgrey;
     overflow: scroll;
     height: 400px;
-    width: 400px;
+    width: 500px;
     float: top;
-    /* border-style: ridge;
+}
+
+.comments-container {
+    border-style: ridge;
     border-color: black;
-    border-top: none; */
 }
 
 
@@ -163,10 +169,6 @@ footer {
 
 .unclickable {
     pointer-events: none;
-}
-
-.game_list_card img{
-
 }
 
 @media screen and (max-width: 576px) {
