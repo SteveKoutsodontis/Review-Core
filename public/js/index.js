@@ -1,6 +1,6 @@
 //TODO: Log out
 const reviewRowEl = $("#review-row");
-const REVIEWPAGEURL = '/reviewPage.html';
+const REVIEWPAGEURL = '/reviewpage.html';
 const logged = document.getElementById("logged")
 const SessionData = JSON.parse(sessionStorage.getItem("UserSession"));
 let reviews = [];
