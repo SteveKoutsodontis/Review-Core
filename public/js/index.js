@@ -1,8 +1,33 @@
 //TODO: Log out
 const reviewRowEl = $("#review-row");
 const REVIEWPAGEURL = '/reviewPage.html';
+const logged = document.getElementById("logged")
 const SessionData = JSON.parse(sessionStorage.getItem("UserSession"));
 let reviews = [];
+
+if(SessionData) {
+    logged.innerHTML= "";
+    let newA = document.createElement("a")
+    newA.textContent = "Log Out"
+    newA.setAttribute("href", "#")
+    newA.addEventListener("click", logUserOut);
+
+    logged.appendChild(newA)
+}
+
+async function logUserOut() {
+    const response = await fetch('/api/users/logout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+      });
+    
+      if (response.ok) {
+        sessionStorage.removeItem("UserSession")
+        document.location.replace('/');
+      } else {
+        alert('Failed to log out');
+      }
+}
 
 function init(){
     getReviews();
